@@ -1,0 +1,87 @@
+# ============================================================================
+#  PROpeg — Apache configuration
+#  Every module-specific directive is wrapped in <IfModule>, so a disabled
+#  module can NEVER trigger a 500 error — e.g. an unguarded "Header" directive
+#  while mod_headers is off would otherwise take the whole site down.
+#  The HTTPS / compression / caching / security-header blocks only take effect
+#  once the matching modules are enabled on the server:
+#     sudo a2enmod headers rewrite deflate expires && sudo systemctl reload apache2
+# ============================================================================
+
+# --- Disable directory listing (no browsable file lists) --------------------
+Options -Indexes
+
+# --- Protect Sensitive Files ------------------------------------------------
+# Block access to hidden files/directories (e.g. .git, .env, .htaccess)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block access to internal data files
+<FilesMatch "(?i)\.(json|md|log|env|ini|bak)$">
+    Require all denied
+</FilesMatch>
+
+# Block direct access to the analytics credential include
+<Files "umami_config.php">
+    Require all denied
+</Files>
+
+# --- Ensure .php is executed as PHP -----------------------------------------
+<IfModule mod_mime.c>
+    AddType application/x-httpd-php .php
+</IfModule>
+
+# --- Redirect HTTP -> HTTPS (loop-safe: skips localhost & proxy-terminated TLS)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteCond %{HTTP_HOST} !=localhost
+    RewriteCond %{HTTP_HOST} !=127.0.0.1
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- Security response headers ----------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # Enable HSTS ONLY after HTTPS is confirmed stable (it hard-locks the host to HTTPS):
+    # Header always set Strict-Transport-Security "max-age=15768000"
+</IfModule>
+
+# --- Gzip/deflate compression for text assets -------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml application/xml
+</IfModule>
+
+# --- Browser caching (HTML stays uncached so the tool is always fresh) -------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML stays uncached
+    ExpiresByType text/html              "access plus 0 seconds"
+
+    # CSS and JS
+    ExpiresByType text/css               "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Images and Media
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/gif              "access plus 1 year"
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType image/x-icon           "access plus 1 year"
+
+    # Web Fonts (Important for FontAwesome)
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType font/woff              "access plus 1 year"
+    ExpiresByType font/ttf               "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+
+    # Documents
+    ExpiresByType application/pdf        "access plus 1 month"
+</IfModule>

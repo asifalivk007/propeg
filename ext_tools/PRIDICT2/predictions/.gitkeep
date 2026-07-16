@@ -1,0 +1,3 @@
+# Keeps the predictions/ directory in the repo — PRIDICT2 writes its
+# *_pegRNA_Pridict_full.csv output here and does NOT create the folder
+# itself, so a fresh clone needs it to exist. Outputs are gitignored.

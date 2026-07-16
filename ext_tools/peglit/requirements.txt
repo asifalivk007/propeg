@@ -1,0 +1,11 @@
+# pegLIT dependencies
+Flask
+flask-cors
+numpy
+scipy
+scikit-learn
+Levenshtein
+ViennaRNA
+# Production WSGI server (concurrent linker requests); dev can still run
+# `python linker_server.py` directly.
+gunicorn

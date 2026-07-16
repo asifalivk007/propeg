@@ -1,0 +1,20 @@
+# robots.txt — PROpeg (ICAR-CRRI & ICAR-IASRI)
+# results.php is a POST-driven output page with no standalone (GET) content,
+# so it is excluded from crawling below.
+User-agent: *
+Allow: /
+
+# Internal endpoints (no indexable content)
+Disallow: /submit_design.php
+Disallow: /process_pegrna.php
+Disallow: /job_status.php
+Disallow: /globe-data.php
+Disallow: /results.php
+
+# Internal / non-public directories
+Disallow: /query/
+Disallow: /ext_tools/
+Disallow: /visualization-react/
+Disallow: /.claude/
+
+Sitemap: https://propeg.abrl.in/sitemap.xml

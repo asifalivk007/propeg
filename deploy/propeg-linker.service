@@ -1,0 +1,37 @@
+# PROpeg pegLIT Linker Server — systemd unit
+#
+# Install on a Linux server:
+#   sudo cp propeg-linker.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now propeg-linker
+#
+# Manage:
+#   sudo systemctl status  propeg-linker
+#   sudo systemctl restart propeg-linker
+#   sudo journalctl -u     propeg-linker -f
+#
+# Adjust WorkingDirectory / ExecStart / User to match your actual deployment
+# path and the user that owns the project files (often www-data for Apache,
+# or the user under which the Flask process should run).
+#
+# Served by gunicorn for concurrency. Sizing:
+#   --workers  ~= number of CPU cores (each pegLIT job pins one core for
+#                minutes; leave ~1 core for Apache/PHP/PRIDICT). e.g. 2 on a
+#                2-core box.
+#   --timeout 600  MANDATORY — gunicorn's default 30s would kill long jobs.
+# Local dev can instead just run: python linker_server.py
+
+[Unit]
+Description=PROpeg pegLIT Linker Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/path/to/propeg/ext_tools/peglit
+ExecStart=/path/to/propeg/ext_tools/peglit/venv/bin/gunicorn --chdir /path/to/propeg/ext_tools/peglit --workers 2 --timeout 600 --bind 127.0.0.1:5001 linker_server:app
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

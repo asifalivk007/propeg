@@ -1,0 +1,31 @@
+PROpeg — Copyright and Attribution
+
+Copyright (c) 2026 ICAR-Central Rice Research Institute (CRRI), Cuttack and
+ICAR-Indian Agricultural Statistics Research Institute (IASRI), New Delhi.
+
+
+Algorithmic basis
+-----------------
+The pegRNA design procedure implements the approach described in:
+
+  Lin, Q., Jin, S., Zong, Y. et al. High-efficiency prime editing with optimized
+  extended pegRNAs in rice and wheat. Nature Biotechnology 39, 923-927 (2021).
+  https://doi.org/10.1038/s41587-021-00868-w
+
+
+Third-party components
+----------------------
+Bundled or integrated third-party software retains its own original license:
+
+  - pegLIT — BSD 3-Clause (Broad Institute & Harvard, 2023)
+    See: ext_tools/peglit/LICENSE
+    Nelson, J.W. et al. Nature Biotechnology 40, 402-410 (2022).
+
+  - PRIDICT2.0 — MIT (Krauthammer Lab & Schwank Lab)
+    See: ext_tools/PRIDICT2/LICENSE
+    Mathis, N. et al. Nature Biotechnology (2024).
+
+  - pegFinder — MIT (Copyright (c) 2020 rdchow)
+    The PE3/PE3b nicking-sgRNA logic in peg_core.py is a port of pegFinder; the
+    upstream MIT copyright and permission notice is retained inline in that file.
+    Chow, R.D. et al. Nature Biomedical Engineering 5, 190-194 (2021).
