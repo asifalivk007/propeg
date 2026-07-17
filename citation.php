@@ -18,12 +18,17 @@
                 <h3 style="text-align: center;"><i class="fas fa-file-alt"></i> Publication &amp; Citation</h3>
                 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
                     <p style="margin-bottom: 0.5rem;">
-                        <strong>PROpeg: title of the paper title of the paper title of the paper title of the paper
-                            title of the paper title of the paper</strong>
+                        <strong>A generalized scaffold-engineering strategy and automated design platform to
+                            enhance fidelity of prime editing</strong>
                     </p>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Author Names in APA style</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.25rem;"><em>Journal Name</em>, Volume XX,
-                        Issue X</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Panda, S., Halder, T., Vadakkethil, A. A., Parween, M., Thaikkandiyil, A., Jaiswal, S.,
+                        Iquebal, M. A., Yang, Y., Qi, Y., Baig, M. J., &amp; Molla, K. A.
+                        [Manuscript submitted for publication]
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                        <em>Journal (yet to be published)</em>
+                    </p>
                     <div
                         style="text-align: center; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
                         <button class="btn primary"
