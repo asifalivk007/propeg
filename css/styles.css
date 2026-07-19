@@ -1379,6 +1379,11 @@ tr:hover {
     left: 0;
 }
 
+/* Square bullets for the Step 2 "Toggle Options" sub-list */
+.help-card .toggle-suboptions li::before {
+    content: '▪';
+}
+
 .faq-section {
     background: var(--bg-secondary);
     padding: 2rem;

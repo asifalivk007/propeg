@@ -62,14 +62,14 @@
                     <li><strong>Homologous RT template length:</strong> (Range 7-16) Adjust the RT template size.</li>
                     <li style="grid-column: 1 / -1; margin-top: 6px;"><strong>Toggle Options:</strong> Enable optional
                         design models:
-                        <ul style="margin-top: 6px; margin-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;">
-                            <li style="list-style: square;"><strong>Tm-directed PBS length model</strong> &mdash; size the PBS by melting
+                        <ul class="toggle-suboptions" style="margin-top: 6px; margin-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;">
+                            <li><strong>Tm-directed PBS length model</strong> &mdash; size the PBS by melting
                                 temperature rather than fixed length.</li>
-                            <li style="list-style: square;"><strong>Dual-pegRNA model</strong> &mdash; process a paired-pegRNA strategy where
+                            <li><strong>Dual-pegRNA model</strong> &mdash; process a paired-pegRNA strategy where
                                 supported.</li>
-                            <li style="list-style: square;"><strong>Exclude first C in RT template</strong> &mdash; avoid a 5' C at the start of
+                            <li><strong>Exclude first C in RT template</strong> &mdash; avoid a 5' C at the start of
                                 the RT template.</li>
-                            <li style="list-style: square;"><strong>PE3 / PE3b secondary nicking</strong> &mdash; add a nicking sgRNA on the
+                            <li><strong>PE3 / PE3b secondary nicking</strong> &mdash; add a nicking sgRNA on the
                                 non-edited strand within your chosen nick-to-nick distance range, preferring an
                                 edit-specific PE3b nick when available to boost efficiency.</li>
                         </ul>

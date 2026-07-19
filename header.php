@@ -62,7 +62,7 @@ $propeg_ogimg  = $propeg_site . '/img/gepegrna-structure.png';
     <link rel="shortcut icon" href="img/propeg-favicon.png">
 
     <link rel="stylesheet" href="slider/css/layui.css">
-    <link rel="stylesheet" href="css/styles.css?v=2.1.18">
+    <link rel="stylesheet" href="css/styles.css?v=2.1.19">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="slider/layui.js"></script>
