@@ -69,7 +69,7 @@
                                 supported.</li>
                             <li><strong>Exclude first C in RT template</strong> &mdash; avoid a 5' C at the start of
                                 the RT template.</li>
-                            <li><strong>PE3 / PE3b secondary nicking</strong> &mdash; add a nicking sgRNA on the
+                            <li><strong>PE3 / PE3b nicking sgRNA</strong> &mdash; add a secondary nicking sgRNA on the
                                 non-edited strand within your chosen nick-to-nick distance range, preferring an
                                 edit-specific PE3b nick when available to boost efficiency.</li>
                         </ul>
