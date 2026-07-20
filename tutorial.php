@@ -62,7 +62,7 @@
                     <li><strong>Homologous RT template length:</strong> (Range 7-16) Adjust the RT template size.</li>
                     <li style="grid-column: 1 / -1; margin-top: 6px;"><strong>Toggle Options:</strong> Enable optional
                         design models:
-                        <ul class="toggle-suboptions" style="margin-top: 6px; margin-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;">
+                        <ul class="square-bullets" style="margin-top: 6px; margin-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;">
                             <li><strong>Tm-directed PBS length model</strong> &mdash; size the PBS by melting
                                 temperature rather than fixed length.</li>
                             <li><strong>Dual-pegRNA model</strong> &mdash; process a paired-pegRNA strategy where
@@ -104,11 +104,11 @@
                         <strong>Spacer-PAM</strong>, <strong>Linker</strong>, <strong>PBS</strong>, and <strong>RT
                             Template</strong>, as well as indicating the target sequence <strong>Strand</strong>
                         orientation (Sense/Antisense).</li>
-                    <li><strong>Efficiency Score:</strong> Predicted editing efficiency, utilizing a varaiant of
+                    <li><strong>Efficiency Score:</strong> Predicted editing efficiency, utilizing a variant of the
                         deep-learning tool algorithm (PRIDICT2.0), adopting the baseline (HEK293T) score.</li>
                     <li><strong>Secondary Structure Visualization:</strong> The results table will feature a specific
                         visualization button matching your chosen design (pegRNA, g-pegRNA, epegRNA, or g-epegRNA).
-                        <ul style="margin-top: 5px; margin-left: 20px; list-style-type: circle;">
+                        <ul class="square-bullets" style="margin-top: 5px; margin-left: 20px;">
                             <li><strong>pegRNA:</strong> Visualizes the standard folded RNA string, showcasing spacer,
                                 scaffold, RT, and PBS sections correctly aligned.</li>
                             <li><strong>g-pegRNA:</strong> Highlights the specific modification of the last three
@@ -177,7 +177,7 @@
             content = '<p>An <strong>epegRNA</strong> (engineered pegRNA) keeps the <em>standard</em> scaffold but appends a 3\' protective structured motif (such as the tevopreQ<sub>1</sub> sequence) to the RT template through a computationally optimized <strong>linker sequence</strong>, shielding the 3\' extension from exonuclease degradation. A <strong>g-epegRNA</strong> applies that same engineered 3\' motif on top of the g-pegRNA scaffold modification &mdash; so an epegRNA is essentially the g-epegRNA design without the scaffold change, useful when you want the 3\' stability benefit without modifying the scaffold.</p>';
         } else if (id === 4) {
             title = 'How does PROpeg streamline the design process?';
-            content = '<p>PROpeg provides a comprehensive all-in-one platform for prime editing workflows. Instead of relying on multiple disparate computational tools, it seamlessly integrates optimal pegRNA design, Tm-based optimization, machine-learning efficiency scoring, structural visualizations, and optimal linker identification into a single interface. This unifies the workflow, saving valuable time and ensuring high accuracy.</p>';
+            content = '<p>PROpeg provides a comprehensive all-in-one platform for prime editing workflows. Instead of relying on multiple disparate computational tools, it seamlessly integrates optimal pegRNA design, Tm-based optimization, PE3/PE3b secondary nicking sgRNA selection, machine-learning efficiency scoring, structural visualizations, and optimal linker identification into a single interface. This unifies the workflow, saving valuable time and ensuring high accuracy.</p>';
         }
 
         if (typeof layui !== 'undefined') {
